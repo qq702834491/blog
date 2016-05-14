@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表-博客频道</title>
+    <link rel="shortcut icon" href="{:IMG_URL}blog.png"/>
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}header.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}footer.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}manger.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}nav.css">
+    <script type="text/javascript" src="__PUBLIC__/bs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/holder.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/nav.js"></script>
+    <script type="text/javascript" src="{:JS_URL}manger.js"></script>
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="bg"></div>
+    <div class="container content">
+        <include file="Public/nav" />
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <tr>
+                <th class="text-center">标题</th>
+                <th class="text-center">操作</th>
+            </tr>
+        <foreach name="list" item="v">
+            <tr>
+                <td class="title"><a href="__ROOT__/Home/Blog/read/id/{$v.artical_id}">{$v.title}</a>({:date("Y-m-d H:i:s",$v['s_time'])})</td>
+                <td class="text-center">
+                    <a href="__ROOT__/Home/Blog/newarticle/id/{$v.artical_id}">编辑</a>
+                    <a href="__ROOT__/Home/Blog/delarticle/id/{$v.artical_id}" class="del">删除</a>
+                </td>
+            </tr>
+        </foreach>
+        </table>
+        <div class="text-center">{$page}</div>
+    </div>
+    <div class="bg"></div>
+    <include file="Public/footer" />
+</body>
+</html>

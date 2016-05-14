@@ -1,0 +1,24 @@
+[ 2016-05-14T10:21:24+08:00 ] ::1 /blog/index.php/blog/index.php/home/comment_daily/readcomment.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+ERR: 无法加载模块:Blog
+
+[ 2016-05-14T10:21:38+08:00 ] ::1 /blog/index.php/blog/index.php/commentdaily/readcomment.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000494s ]
+ERR: 无法加载模块:Blog
+
+[ 2016-05-14T10:22:13+08:00 ] ::1 /blog/index.php/blog/index.php/commentdaily/readcomment.html.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000575s ]
+ERR: 无法加载模块:Blog
+
+[ 2016-05-14T15:13:58+08:00 ] ::1 /blog/index.php/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000330s ]
+ERR: 无法加载模块:Login
+

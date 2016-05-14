@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manjusaka-博客频道</title>
+    <link rel="shortcut icon" href="{:IMG_URL}blog.png"/>
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}read.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}header.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}footer.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/bs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{:JS_URL}read.js"></script>
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="body">
+        <div class="container content">
+            <div class="row nav">
+                <ul class="pull-left">
+                    <li class="pull-left"><a href="__ROOT__/Home/Index/index/mode/simple" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>目录视图</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Index/index/mode/more" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list-alt"></span>摘要视图</a></li>
+                <if condition="session('login')===1">
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/manger" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>管理博客</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/newarticle" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span>写新文章</a></li>
+                </if>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div class="image text-center">
+                        <img src="{:IMG_URL}logo.jpg" title="头像">
+                    </div>
+                    <div class="bg"></div>
+                    <div class="classify">
+                        <ul>
+                            <li>分类列表：</li>
+                            <foreach name="classify" item="v">
+                                <li><a href="__ROOT__/Home/Index/index/id/{$v.classify_id}">{$v.classify_name}</a>({$v.num})</li>
+                            </foreach>
+                        </ul>
+                    </div>
+                </div>
+                <div class="right container">
+                    <foreach name="article" item="v">
+                        <div class="title"><h2>{$v.title}</h2></div>
+                        <div class="time pull-right">
+                            <if condition="session('login')===1">
+                            <a href="__ROOT__/Home/Manger/newarticle/id/{$v.artical_id}" class="modify">编辑</a>|<a href="__ROOT__/Home/Manger/delarticle/id/{$v.artical_id}" class="del">删除</a>
+                            </if>
+                            发表时间：{:date("Y-m-d H:i:s",$v['s_time'])}
+                        </div>
+                        <div class="cname pull-left">所属分类：{$v.classify_name}</div>
+                        <div class="acontent pull-left">{:htmlspecialchars_decode($v['content'])}</div>
+                    </foreach>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer" />
+</body>
+</html>

@@ -1,0 +1,89 @@
+*{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    list-style: none;
+    text-decoration: none;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background: url('../img/bg.png');
+}
+.bg{
+    height: 10px;
+    background: url('../img/bg.png');
+}
+.search:hover{
+    background: #48525E;
+}
+.body{
+    border-top: 1px solid #ccc;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+.glyphicon{
+    background: #fff;
+}
+.nav li{
+    margin-right: 10px;
+}
+.content .left,.content .right{ 
+    background: #fff;
+}
+.content .left{
+    float: left;
+    width: 20%;
+}
+.content .right{
+    float: right;
+    width: 78%;
+}
+.iamge{
+    margin: 0 auto;
+}
+.classify ul{
+    margin-top: 10px;
+}
+.classify li{
+    padding-left: 10px;
+}
+.title a{
+    font-size: 20px;
+}
+.main{
+    color: #666;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.msg{
+    font-size:12px;
+    color: #999;
+}
+.list{
+    padding: 10px;
+}
+.clearfix{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.msg .pull-right{
+    margin-right: 10px;
+}
+.title-simple{
+    font-size: 14px;
+}
+.content_list{
+    clear: both;
+}
+.datetimepicker-days{
+    padding-left:10px;
+}
+.lastestList{
+    font-size:13px;
+}
+.lastestComment{
+    padding: 10px;
+}
+.image img{
+    border:1px solid #666;
+}

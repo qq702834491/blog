@@ -1,0 +1,11 @@
+.header,.header .container{
+    height: 45px;
+}
+.header>.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+.header .pull-right,.header .pull-right a{
+    color:#fff;
+    line-height: 45px;
+}

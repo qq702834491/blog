@@ -1,0 +1,12 @@
+<div class="header">
+    <div class="container top">
+        <ul class="pull-left">
+            <li class="pull-left"><a href="__ROOT__/Home/Index/index" class="logo_link"><img src="{:IMG_URL}logo.png"></a></li>
+        </ul>
+        <ul class="pull-right">
+            <if condition="session('login')===1">
+                <li class="pull-left">欢迎{:session('user')}登录&nbsp;&nbsp;&nbsp;<a href="__MODULE__/Index/logout">退出</a></li>
+            </if>
+        </ul>
+    </div>
+</div>

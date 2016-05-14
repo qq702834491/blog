@@ -1,0 +1,25 @@
+*{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    list-style: none;
+    text-decoration: none;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background: url('../img/bg.png');
+}
+.container{
+    padding-left: 0;
+    padding-right: 0;
+}
+.content{
+    background: #fff;
+}
+.form-group{
+    margin-top: 20px;
+}
+.bg{
+    background: url('../img/bg.png');
+    height: 20px;
+}

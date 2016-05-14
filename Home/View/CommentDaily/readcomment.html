@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manjusaka-博客频道</title>
+    <link rel="shortcut icon" href="{:IMG_URL}blog.png"/>
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}commentdaily.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}header.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}footer.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/bs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{:JS_URL}commentdaily.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/datetimepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/datetimepicker.min.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="body">
+        <div class="container content">
+            <div class="row nav">
+                <ul class="pull-left">
+                <if condition="I('get.id')">
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/simple/id/{:I('get.id')}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>&nbsp;目录视图</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/more/id/{:I('get.id')}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;摘要视图</a></li>
+                <else />
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/simple" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>&nbsp;目录视图</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/more" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;摘要视图</a></li>
+                </if>
+                <if condition="session('login')===1">
+                    <li class="pull-left"><a href="__ROOT__/Home/CommentDaily/readdaily" class="btn btn-default btn-sm daily"><span class="glyphicon glyphicon-tasks"></span>&nbsp;日常事务</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/manger" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;管理博客</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/newarticle" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span>&nbsp;写新文章</a></li>
+                </if>
+                    <li class="pull-left"><a href="__ROOT__/Home/CommentDaily/readcomment" class="btn btn-default btn-sm comment"><span class="glyphicon glyphicon-pushpin"></span>&nbsp;留言板</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div class="image text-center">
+                        <img src="{:IMG_URL}logo.jpg" title="头像" style="width:100px">
+                    </div>
+                    <div class="bg"></div>
+                    <div id="datetimepicker"></div>
+                </div>
+                <div class="right">
+                    <div class="list">
+                        <div class="topList">
+                            <foreach name="top" item="topList">
+                                <div class="beTopList">
+                                    <div class="d_content">置顶：{$key}</div>
+                                    <div class="pull-right">{:date("Y-m-d H:i:s",$topList)}</div>
+                                </div>
+                            </foreach>
+                        </div>
+                        <div class="content_list">
+                            <foreach name="commentList" item="v">
+                                <div class="d_list">
+                                    <div class="d_content">{$v.content}</div>
+                                    <if condition="session('login')===1">
+                                        <div class="pull-right del"><a href="javascript:;" class="del{$v.m_id}">删除</a></div>
+                                        <div class="pull-right reply"><a href="javascript:;" class="reply{$v.m_id}">回复</a></div>
+                                        <div class="pull-right betop"><a href="__ROOT__/Home/CommentDaily/betop/id/{$v.m_id}">置顶</a></div>
+                                    </if>
+                                    <div class="pull-right">{:date("Y-m-d H:i:s",$v['s_time'])}</div>
+                                    <div class="pull-right">留言者：
+                                        <if condition="$v['m_name'] eq 'qq702834491'">
+                                            <span style="color:red;">博主</span>
+                                        <else />
+                                            {$v.m_name}
+                                        </if>
+                                    </div>
+                                    <div class="r_list">
+                                        <foreach name="reply" item="rep">
+                                            <if condition="$rep['pid'] eq $v['m_id']">
+                                                <div class="r_content">
+                                                    <span class="replyname">
+                                                        <if condition="$rep['m_name'] eq 'qq702834491'">
+                                                            博主
+                                                        </if>
+                                                    </span>:
+                                                    <span class="replycontent">{$rep.content}</span>
+                                                    <if condition="session('login')===1">
+                                                        <span class="pull-right redel"><a href="javascript:;" class="del{$rep.m_id}">删除</a></span>
+                                                    </if>
+                                                    <span class="pull-right">{:date("Y-m-d H:i:s",$rep['s_time'])}</span>
+                                                </div>
+                                            </if>
+                                        </foreach>
+                                    </div>
+                                </div>
+                            </foreach>
+                            <div class="text-center">{$page}</div>
+                        </div>
+                        <div class="form-group col-md-3 col-md-offset-3">
+                            <if condition="session('login')===1">
+                                <input type="text" name="m_name" class="form-control m_name" value="{:session('user')}" readonly="readonly">
+                            <else />
+                                <input type="text" name="m_name" class="form-control m_name" placeholder="请输入用户名">
+                            </if>
+                        </div>
+                        <div class="form-group col-md-6 col-md-offset-3">
+                            <textarea name="content" rows="5" placeholder="请输入留言内容" class="form-control m_content"></textarea>
+                        </div>
+                        <div class="form-group col-md-3 col-md-offset-3">
+                            <button class="btn btn-primary btn-sm readcomment">发表</button>
+                            <button class="btn btn-warning btn-sm reset">清空内容</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer" />
+</body>
+<script type="text/javascript">
+$(".del a").click(function(e){
+    var id=$(e.target).attr("class").substring(3);
+    if(confirm("确定要删除此数据吗？")){
+        $.post('__ROOT__/Home/CommentDaily/del', {id: id}, function(data) {
+            if(data===true){
+                $(e.target).parents(".d_list").remove();        //删除该组数据
+            }else{
+                alert(data);
+            }
+        });
+    }
+});
+$(".redel a").click(function(e){
+    var id=$(e.target).attr("class").substring(3);
+    if(confirm("确定要删除此数据吗？")){
+        $.post('__ROOT__/Home/CommentDaily/del', {id: id}, function(data) {
+            if(data===true){
+                $(e.target).parents(".r_content").remove();        //删除该组数据
+            }else{
+                alert(data);
+            }
+        });
+    }
+});
+</script>
+</html>

@@ -1,0 +1,26 @@
+.nav{
+    clear:both;
+    width: 100%;
+    background: #fff;
+}
+.nav ul{
+    margin-left: 10px;
+}
+.nav li{
+    color:#272822;
+    display:block;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #000;
+    background-color: #fff;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 10px;
+    cursor:pointer;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    -webkit-box-shadow: 3px 3px 3px;  
+    -moz-box-shadow: 3px 3px 3px;  
+    box-shadow: 3px 3px 3px;
+}

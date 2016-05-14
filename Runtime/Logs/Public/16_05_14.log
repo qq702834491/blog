@@ -1,0 +1,30 @@
+[ 2016-05-14T10:53:54+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+
+[ 2016-05-14T10:54:01+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000428s ]
+
+[ 2016-05-14T10:54:18+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+
+[ 2016-05-14T10:54:19+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000557s ]
+
+[ 2016-05-14T10:54:20+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000484s ]
+
+[ 2016-05-14T10:56:36+08:00 ] ::1 /blog/Public/xvCalendar/basic/images/button_bg.png
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+

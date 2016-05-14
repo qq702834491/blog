@@ -1,0 +1,22 @@
+*{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    list-style: none;
+    text-decoration: none;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background:url('../img/bg.png');
+}
+.login{
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+.btn{
+    width: 100%;
+}
+form img{
+    width: 100%;
+}

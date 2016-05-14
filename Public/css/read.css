@@ -1,0 +1,70 @@
+*{
+    font-family: 微软雅黑;
+    list-style: none;
+    text-decoration: none;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background: url('../img/bg.png');
+}
+.bg{
+    height: 10px;
+    background: url('../img/bg.png');
+}
+.search:hover{
+    background: #48525E;
+}
+.body{
+    border-top: 1px solid #ccc;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+.glyphicon{
+    background: #fff;
+}
+.nav li{
+    margin-right: 10px;
+}
+.content .left,.content .right{ 
+    background: #fff;
+}
+.content .left{
+    float: left;
+    width: 20%;
+}
+.content .right{
+    float: right;
+    width: 78%;
+}
+.iamge{
+    margin: 0 auto;
+}
+
+.modal-body .help-block{
+    color: red;
+}
+.classify li{
+    padding-left: 10px;
+}
+.time,.cname{
+    color: #666;
+}
+.time a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.acontent{
+    clear:both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.title h2{
+    font-size: 20px;
+}
+.image img{
+    width: 100px;
+}
+.image img{
+    border:1px solid #666;
+}

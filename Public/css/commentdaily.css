@@ -1,0 +1,82 @@
+*{
+    font-size: 14px;
+    font-family: 微软雅黑;
+    list-style: none;
+    text-decoration: none;
+    padding:0px;
+    margin: 0px;
+}
+body{
+    background: url('../img/bg.png');
+}
+.bg{
+    height: 10px;
+    background: url('../img/bg.png');
+}
+.body{
+    border-top: 1px solid #ccc;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+.nav li{
+    margin-right: 10px;
+}
+.content .left,.content .right{ 
+    background: #fff;
+}
+.content .left{
+    float: left;
+    width: 20%;
+}
+.content .right{
+    float: right;
+    width: 78%;
+}
+.content_list{
+    clear: both;
+}
+.list{
+    padding: 10px;
+}
+.d_content{
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.d_list{
+    padding: 10px;
+    padding-bottom: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+}
+.d_list .pull-right{
+    padding-left: 10px;
+}
+.r_list{
+    border: 1px solid #ccc;
+    clear:both;
+    padding:10px;
+    padding-left: 20px;
+}
+.r_content{
+    margin: 5px;
+}
+.replyname{
+    color: red;
+}
+.replycontent{
+    color: #666;
+}
+.beTopList{
+    padding: 10px;
+    padding-bottom: 20px;
+    margin: 10px;
+    border: 1px solid #333;
+    background-color: #2E373A;
+    color: #fff;
+}
+.datetimepicker-days{
+    padding-left:10px;
+}
+.image img{
+    border:1px solid #666;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manjusaka-博客频道</title>
+    <link rel="shortcut icon" href="{:IMG_URL}blog.png"/>
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}index.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}header.css">
+    <link rel="stylesheet" type="text/css" href="{:CSS_URL}footer.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/bootstrap.min.css">
+    <script type="text/javascript" src="__PUBLIC__/bs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/bs/js/datetimepicker.min.js"></script>
+    <script type="text/javascript" src="{:JS_URL}index.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/bs/css/datetimepicker.min.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="body">
+        <div class="container content">
+            <div class="row nav">
+                <ul class="pull-left">
+                <if condition="I('get.id')">
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/simple/id/{:I('get.id')}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>&nbsp;目录视图</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/more/id/{:I('get.id')}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;摘要视图</a></li>
+                <else />
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/simple" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span>&nbsp;目录视图</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/index/index/mode/more" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;摘要视图</a></li>
+                </if>
+                <if condition="session('login')===1">
+                    <li class="pull-left"><a href="__ROOT__/Home/CommentDaily/readdaily" class="btn btn-default btn-sm daily"><span class="glyphicon glyphicon-tasks"></span>&nbsp;日常事务</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/manger" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-book"></span>&nbsp;管理博客</a></li>
+                    <li class="pull-left"><a href="__ROOT__/Home/Manger/newarticle" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span>&nbsp;写新文章</a></li>
+                </if>
+                    <li class="pull-left"><a href="__ROOT__/Home/CommentDaily/readcomment" class="btn btn-default btn-sm comment"><span class="glyphicon glyphicon-pushpin"></span>&nbsp;留言板</a></li>
+                </ul>
+                <ul  class="pull-right">
+                    <li>
+                        <form action="__ACTION__" method="post" class="form-inline">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="search" placeholder="文章搜索">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>查询</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div class="image text-center">
+                        <img src="{:IMG_URL}logo.jpg" title="头像" style="width:100px">
+                    </div>
+                    <div class="bg"></div>
+                    <div id="datetimepicker"></div>
+                    <div class="bg"></div>
+                    <div class="classify">
+                        <ul>
+                            <li>分类列表：</li>
+                            <if condition="I('get.mode')">
+                                <foreach name="classify" item="v">
+                                    <li>
+                                        <a href="__ROOT__/Home/Index/index/id/{$v.classify_id}/mode/{:I('get.mode')}">{$v.classify_name}</a>
+                                        ({$v.num})
+                                    </li>
+                                </foreach>
+                                <else />                        
+                                <foreach name="classify" item="v">
+                                    <li>
+                                        <a href="__ROOT__/Home/Index/index/id/{$v.classify_id}">{$v.classify_name}</a>
+                                        ({$v.num})
+                                    </li>
+                                </foreach>
+                            </if>
+                        </ul>
+                    </div>
+                    <div class="bg"></div>
+                    <div class="lastestComment">
+                        <h5>最近留言：</h5>
+                        <foreach name="lastestComment" item="lastest">
+                            <div class="lastestList">
+                            <if condition="'qq702834491' eq $lastest['m_name']">
+                                <span style="color:red;">博主</span>：{:mb_substr($lastest['content'],0,10,'utf-8')}
+                            <else/>
+                                {$lastest.m_name}：{:mb_substr($lastest['content'],0,10,'utf-8')}
+                            </if>
+                                <div class="text-right">{:date("Y-m-d H:i:s",$lastest['s_time'])}</div>
+                            </div>
+                        </foreach>
+                        <div class="text-right"><a href="__ROOT__/Home/CommentDaily/readcomment">更多...</a></div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="list">
+                    <if condition="I('get.mode') eq 'simple'">
+                        <foreach name="article" item="article">
+                            <div class="clearfix">
+                                <div class="title-simple pull-left"><a href="__ROOT__/Home/Blog/read/id/{$article.artical_id}">{$article.title}</a></div>
+                                <div class="msg">
+                                    <if condition="session('login')===1">
+                                        <div class="pull-right"><a href="__ROOT__/Home/Manger/newarticle/id/{$article.artical_id}">编辑</a>&nbsp;|&nbsp;<a href="__ROOT__/Home/Manger/delarticle/id/{$article.artical_id}" class="del">删除</a></div>
+                                    </if>
+                                    <div class="leibie pull-right">类别：{$article.classify_name}</div>
+                                    <div class="time pull-right">发表时间：{:date("Y-m-d H:i:s",$article['s_time'])}</div>
+                                </div>
+                            </div>
+                        </foreach>
+                    <else />
+                        <foreach name="article" item="article">
+                            <div class="clearfix">
+                                <div class="title"><a href="__ROOT__/Home/Blog/read/id/{$article.artical_id}">{$article.title}</a></div>
+                                <div class="main">{:mb_substr(strip_tags(htmlspecialchars_decode($article['content'])),0,100,'utf-8')}</div>
+                                <div class="msg">
+                                <if condition="session('login')===1">
+                                    <div class="pull-right"><a href="__ROOT__/Home/Manger/newarticle/id/{$article.artical_id}">编辑</a>&nbsp;|&nbsp;<a href="__ROOT__/Home/Manger/delarticle/id/{$article.artical_id}" class="del">删除</a></div>
+                                </if>
+                                    <div class="leibie pull-right">类别：{$article.classify_name}</div>
+                                    <div class="time pull-right">发表时间：{:date("Y-m-d H:i:s",$article['s_time'])}</div>
+                                </div>
+                            </div>
+                        </foreach>
+                    </if>
+                    </div>
+                    <div class="text-center">
+                        {$page}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer" />
+</body>
+</html>
